@@ -1,0 +1,12 @@
+[package]
+name = "rpi-vbus-logger"
+version = "0.1.0"
+authors = ["Daniel Wippermann <Daniel.Wippermann@resol.de>"]
+
+[dependencies]
+mysql = "*"
+serde = "*"
+serde_derive = "*"
+serial = "*"
+resol-vbus = { path = "../resol-vbus.rs" }
+toml = "*"

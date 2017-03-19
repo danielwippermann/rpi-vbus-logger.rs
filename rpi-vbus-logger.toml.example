@@ -1,0 +1,23 @@
+[database]
+hostname = "127.0.0.1"
+port = 3306
+username = "dbusername"
+password = "dbpassword"
+database = "vbus_data"
+
+[serial]
+path = "/dev/tty.SLAB_USBtoUART"
+
+[logger]
+interval = 60
+
+
+[[fields]]
+column = "temp_sp_1"
+packet_id = "00_0010_7E11_10_0100"
+field_id = "002_2_0"
+
+[[fields]]
+column = "temp_sp_2"
+packet_id = "00_0010_7E11_10_0100"
+field_id = "004_2_0"
