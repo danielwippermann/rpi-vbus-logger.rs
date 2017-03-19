@@ -130,6 +130,7 @@ fn print_fields(spec: &Specification, data_set: &DataSet) {
 
 
 fn main() {
+    println!("Reading configuration...");
     let config = read_config().expect("Unable to read config");
 
     println!("Connecting to database...");
