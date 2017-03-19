@@ -160,15 +160,15 @@ fn main() {
     let fields = process_fields_config(&config.fields, &spec, &config.database.database, &mut db_conn).expect("Unable to process the field config");
 
     println!("Connecting to VBus...");
-    // let port = open_serial_port(&config.serial.path).expect("Unable to open serial port");
+    let port = open_serial_port(&config.serial.path).expect("Unable to open serial port");
 
-    let mut stream = std::net::TcpStream::connect("192.168.13.1:7053").unwrap();
-    let mut connector = ::resol_vbus::TcpConnector::new(stream);
-    connector.connect().unwrap();
-    let mut stream = connector.into_inner();
+    // let mut stream = std::net::TcpStream::connect("192.168.13.1:7053").unwrap();
+    // let mut connector = ::resol_vbus::TcpConnector::new(stream);
+    // connector.connect().unwrap();
+    // let mut stream = connector.into_inner();
 
-    // let mut ldr = LiveDataReader::new(0, port);
-    let mut ldr = LiveDataReader::new(0, stream);
+    let mut ldr = LiveDataReader::new(0, port);
+    // let mut ldr = LiveDataReader::new(0, stream);
 
     let mut data_set = DataSet::new();
     let mut data_set_is_stable = false;
