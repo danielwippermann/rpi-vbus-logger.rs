@@ -8,6 +8,7 @@ extern crate toml;
 
 
 use std::rc::Rc;
+use std::time::Duration;
 
 use mysql::{OptsBuilder, Pool, PooledConn, Value};
 use serial::{SerialPort, SystemPort};
@@ -161,7 +162,8 @@ fn main() {
     let fields = process_fields_config(&config.fields, &spec, &config.database.database, &mut db_conn).expect("Unable to process the field config");
 
     println!("Connecting to VBus...");
-    let port = open_serial_port(&config.serial.path).expect("Unable to open serial port");
+    let mut port = open_serial_port(&config.serial.path).expect("Unable to open serial port");
+    port.set_timeout(Duration::from_secs(3600));
 
     // let mut stream = std::net::TcpStream::connect("192.168.13.1:7053").unwrap();
     // let mut connector = ::resol_vbus::TcpConnector::new(stream);
