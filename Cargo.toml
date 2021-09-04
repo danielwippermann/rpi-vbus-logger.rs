@@ -8,5 +8,5 @@ mysql = "*"
 serde = "*"
 serde_derive = "*"
 serial = "*"
-resol-vbus = { path = "../resol-vbus.rs" }
+resol-vbus = "*"
 toml = "*"
