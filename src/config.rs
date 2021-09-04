@@ -3,8 +3,7 @@ use std::io::Read;
 
 use toml;
 
-use error::Result;
-
+use crate::error::Result;
 
 #[derive(Debug, Deserialize)]
 pub struct DatabaseConfig {
@@ -15,18 +14,15 @@ pub struct DatabaseConfig {
     pub database: String,
 }
 
-
 #[derive(Debug, Deserialize)]
 pub struct SerialConfig {
     pub path: String,
 }
 
-
 #[derive(Debug, Deserialize)]
 pub struct LoggerConfig {
     pub interval: i32,
 }
-
 
 #[derive(Debug, Deserialize)]
 pub struct FieldConfig {
@@ -35,7 +31,6 @@ pub struct FieldConfig {
     pub field_id: String,
 }
 
-
 #[derive(Debug, Deserialize)]
 pub struct Config {
     pub database: DatabaseConfig,
@@ -43,7 +38,6 @@ pub struct Config {
     pub logger: LoggerConfig,
     pub fields: Vec<FieldConfig>,
 }
-
 
 pub fn read_config() -> Result<Config> {
     let mut file = File::open("rpi-vbus-logger.toml")?;
