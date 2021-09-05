@@ -69,6 +69,7 @@ impl DataSetStability {
         } else if self.is_stable {
             DataSetStabilityState::Stable
         } else {
+            self.counter += 1;
             let percent = self.stability_percent();
             if percent >= 100 {
                 self.is_stable = true;
